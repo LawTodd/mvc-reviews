@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Todd's List of Reviews</title>
+	<style>
+span {
+    background-color: yellow;
+    padding: 20px;
+    display: none;
+}
+    
+a:hover + span {
+    display: block;
+}
+
+li {
+	font-size: 20px;
+}
+</style>
+</head>
+
+<body>
+
+	<h1>Pick your favorite from this list of Todd's Travel reviews!</h1>
+	
+	<ul>
+		<li th:each="review: ${reviews}"><a th:text="${review.title}" 
+	th:href="@{http://localhost:8080/showReview(id=${review.id})}" /><span th:text="'  Category: '+${review.category}+'  '+'  '+'    Date:  '+${review.date}"/></li>
+	</ul>
+
+	
+</body>
+</html>

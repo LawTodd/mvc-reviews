@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Todd's Review</title>
+</head>
+<body>
+
+<h1 th:text="${review.title}"/>
+<p></p>
+<img th:src="${review.imageURL}" style="width:300px;height:200px"  />
+<p></p>
+<h3 th:text="${review.category}"/>
+<p></p>
+<p th:text="${review.content}"/>
+<p></p>
+<p th:text="${review.date}"/>
+</body>
+</html>
