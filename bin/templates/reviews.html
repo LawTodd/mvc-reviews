@@ -34,7 +34,7 @@ a:hover + span {
     display: block;
 }
 
-li {
+#each {
 	font-size: 20px;
 	
 }
@@ -95,7 +95,7 @@ li {
                 	<div class="caption-full">
  		               	<h1 style="text-align:center">Pick your favorite from the list of Todd's Travel Reviews!</h1>
         	        	<ul>
-							<li th:each="review: ${reviews}"><a th:text="${review.title}" 
+							<li id="each" th:each="review: ${reviews}"><a th:text="${review.title}" 
 								th:href="@{http://localhost:8080/showReview(id=${review.id})}" /><span th:text="'  Category: '+${review.category}+'  '+'  '+'    Date:  '+${review.date}"/></li>
 						</ul>
                     </div>
