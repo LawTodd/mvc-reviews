@@ -101,7 +101,7 @@ a:hover + span {
         	        	<ul>
 							<li id="each" th:each="review: ${reviews}"><a th:text="${review.title}" 
 								th:href="@{http://localhost:8080/showReview(id=${review.id})}" />
-								<span th:text="'  Category: '+${review.category}+|;     |+'    Date:  '+${review.date}"/></li>
+								<span th:text="'  Category: '+${review.category.name}+|;     |+'    Date:  '+${review.date}"/></li>
 						</ul>
                     </div>
                     <div class="ratings">

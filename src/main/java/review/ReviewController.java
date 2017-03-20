@@ -13,7 +13,7 @@ public class ReviewController {
 	
 	@Resource
 	private ReviewRepository repository;
-
+	
     @RequestMapping("/showReviews")
     public String reviews(Model model) {
     	model.addAttribute("reviews", repository.findAll());

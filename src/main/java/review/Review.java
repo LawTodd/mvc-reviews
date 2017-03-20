@@ -18,13 +18,13 @@ public class Review {
 	private long id;
 	private String title;
 	private String imageURL;
-	private String category;
 	private String content;
 	private String date;
+	//private String category;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	private Review review;
-
+	//private Review review;
+	private Category category;
 	
 	protected Review(){
 	}
@@ -34,7 +34,7 @@ public class Review {
 		this.id = id;
 		this.title = title;
 		this.imageURL = imageURL;
-		this.category = category;
+		//this.category = category;
 		this.content = content;
 		this.date = date;
 	}
@@ -51,7 +51,12 @@ public class Review {
 		return imageURL;
 	}
 
-	public String getCategory() {
+//	public String getCategoryName() {
+//		categoryName = category.getName();
+//		return categoryName;
+//	}
+	
+	public Category getCategory() {
 		return category;
 	}
 

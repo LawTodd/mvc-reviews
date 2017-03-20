@@ -60,7 +60,13 @@ a:hover + span {
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="AboutMe.html">About</a>
+                        <a href="showReviews">Reviews</a>
+                    </li>
+                    <li>
+                        <a href="showCategories">Categories</a>
+                    </li>
+                    <li>
+                        <a href="AboutMe.html">About Me</a>
                     </li>
                     <li>
                         <a href="contact.html">Contact</a>
@@ -97,7 +103,8 @@ a:hover + span {
                         <h2 th:text="${category.name}" />
         	        	<ul>
                             <li id="each" th:each="review: ${category.reviews}"><a th:text="${review.title}" 
-                                th:href="@{http://localhost:8080/showReview(id=${review.id})}" /><span th:text="'  Category: '+${category.name}+'  '+'  '+'    Date:  '+${review.date}"/></li>
+                                th:href="@{http://localhost:8080/showReview(id=${review.id})}" />
+                                <span th:text="'  Category: '+${category.name}+'  '+'  '+'    Date:  '+${review.date}"/></li>
 						</ul>
                     </div>
                     <div class="ratings">
