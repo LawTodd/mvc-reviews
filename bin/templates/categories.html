@@ -13,7 +13,7 @@
     <meta name="description" content=""/>
     <meta name="author" content=""/>
 
-    <title>Todd's Review</title>
+    <title>Todd's Reviews</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
@@ -23,6 +23,22 @@
     <link href="css/shop-item.css" rel="stylesheet"/>
 	<link th:href="@{css/shop-item.css}" rel="stylesheet"/>
 
+<style>
+li span {
+    background-color: yellow;
+    padding: 20px;
+    display: none;
+}
+    
+a:hover + span {
+    display: block;
+}
+
+#each {
+	font-size: 20px;
+	
+}
+</style>
 </head>
 
 <body>
@@ -37,6 +53,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">Todd's Travel Tips</a>
             </div>
@@ -44,13 +61,16 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="showReviews">Home</a>
+                        <a href="http://localhost:8080/showReviews">Reviews</a>
                     </li>
                     <li>
-                        <a href="AboutMe.html">About</a>
+                        <a href="AboutMe.html">About Me</a>
                     </li>
                     <li>
                         <a href="contact.html">Contact</a>
+                    </li>
+                    <li>
+                        <a href="resume.html">Resume</a>
                     </li>
                 </ul>
             </div>
@@ -76,13 +96,14 @@
             <div class="col-md-9">
 
                 <div class="thumbnail">
-                    <h2 th:text="${review.title}" style="text-align:center"/>
-                    <img class="img-responsive" th:src="${review.imageURL}" alt=""/>
-                    <div class="caption-full">
-                        
-                        <p th:text="${review.content}"/> 
-                        <p th:text="${review.category}"/>
-                        <p th:text="${review.date}"/>
+                	<div class="caption-full">
+ 		               	<h1 style="text-align:center">Pick your favorite from the list of Todd's Travel Categories!</h1>
+        	        	<ul>
+							<li id="each" th:each="category: ${categories}"><a th:text="${category.name}" 
+								th:href="@{http://localhost:8080/showCategory(id=${category.id})}" />
+                                <!--<span th:text="'  Category: '+${review.category}+|'    '|+'    Date:  '+${review.date}"/>-->
+                                </li>
+						</ul>
                     </div>
                     <div class="ratings">
                         <p class="pull-right">3 reviews</p>

@@ -1,7 +1,20 @@
 package review;
 
+import java.util.Collection;
+
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+@Entity
 public class Review {
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	private String title;
 	private String imageURL;
@@ -9,8 +22,15 @@ public class Review {
 	private String content;
 	private String date;
 	
-	public Review(long id, String title, String imageURL, 
-			String category, String content, String date){
+	@ManyToOne(fetch = FetchType.EAGER)
+	private Review review;
+
+	
+	protected Review(){
+	}
+	
+	public Review(String title, String imageURL, String category, 
+			String content, String date){
 		this.id = id;
 		this.title = title;
 		this.imageURL = imageURL;

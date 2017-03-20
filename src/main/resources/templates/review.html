@@ -76,10 +76,10 @@
             <div class="col-md-9">
 
                 <div class="thumbnail">
+                    <h2 th:text="${review.title}" style="text-align:center"/>
                     <img class="img-responsive" th:src="${review.imageURL}" alt=""/>
                     <div class="caption-full">
-                        <!--<h4 class="pull-right">$24.99</h4>-->
-                        <h4 th:text="${review.title}"/>
+                        
                         <p th:text="${review.content}"/> 
                         <p th:text="${review.category}"/>
                         <p th:text="${review.date}"/>

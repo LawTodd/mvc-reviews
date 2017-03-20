@@ -53,6 +53,7 @@ a:hover + span {
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">Todd's Travel Tips</a>
             </div>
@@ -60,7 +61,10 @@ a:hover + span {
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="AboutMe.html">About</a>
+                        <a href="http://localhost:8080/showCategories.html">Categories</a>
+                    </li>
+                    <li>
+                        <a href="AboutMe.html">About Me</a>
                     </li>
                     <li>
                         <a href="contact.html">Contact</a>
@@ -96,7 +100,8 @@ a:hover + span {
  		               	<h1 style="text-align:center">Pick your favorite from the list of Todd's Travel Reviews!</h1>
         	        	<ul>
 							<li id="each" th:each="review: ${reviews}"><a th:text="${review.title}" 
-								th:href="@{http://localhost:8080/showReview(id=${review.id})}" /><span th:text="'  Category: '+${review.category}+'  '+'  '+'    Date:  '+${review.date}"/></li>
+								th:href="@{http://localhost:8080/showReview(id=${review.id})}" />
+								<span th:text="'  Category: '+${review.category}+|;     |+'    Date:  '+${review.date}"/></li>
 						</ul>
                     </div>
                     <div class="ratings">

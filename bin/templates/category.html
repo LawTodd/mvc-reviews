@@ -13,7 +13,7 @@
     <meta name="description" content=""/>
     <meta name="author" content=""/>
 
-    <title>Todd's Review</title>
+    <title>Todd's Reviews</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
@@ -23,6 +23,22 @@
     <link href="css/shop-item.css" rel="stylesheet"/>
 	<link th:href="@{css/shop-item.css}" rel="stylesheet"/>
 
+<style>
+li span {
+    background-color: yellow;
+    padding: 20px;
+    display: none;
+}
+    
+a:hover + span {
+    display: block;
+}
+
+#each {
+	font-size: 20px;
+	
+}
+</style>
 </head>
 
 <body>
@@ -44,13 +60,13 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="showReviews">Home</a>
-                    </li>
-                    <li>
                         <a href="AboutMe.html">About</a>
                     </li>
                     <li>
                         <a href="contact.html">Contact</a>
+                    </li>
+                    <li>
+                        <a href="resume.html">Resume</a>
                     </li>
                 </ul>
             </div>
@@ -76,13 +92,13 @@
             <div class="col-md-9">
 
                 <div class="thumbnail">
-                    <h2 th:text="${review.title}" style="text-align:center"/>
-                    <img class="img-responsive" th:src="${review.imageURL}" alt=""/>
-                    <div class="caption-full">
-                        
-                        <p th:text="${review.content}"/> 
-                        <p th:text="${review.category}"/>
-                        <p th:text="${review.date}"/>
+                	<div class="caption-full">
+ 		               	<h1 style="text-align:center">Pick your favorite from the list of Todd's Travel Reviews for this Category!</h1>
+                        <h2 th:text="${category.name}" />
+        	        	<ul>
+                            <li id="each" th:each="review: ${category.reviews}"><a th:text="${review.title}" 
+                                th:href="@{http://localhost:8080/showReview(id=${review.id})}" /><span th:text="'  Category: '+${category.name}+'  '+'  '+'    Date:  '+${review.date}"/></li>
+						</ul>
                     </div>
                     <div class="ratings">
                         <p class="pull-right">3 reviews</p>
